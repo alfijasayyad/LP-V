@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SGPA/CGPA to Percentage Converter Web Service</title>
+</head>
+<body>
+	<h2>SGPA/CGPA to Percentage Converter</h2>
+	Enter SGPA: <input type="number" id="sgpa" min="1" max="10">
+	<br />
+	<br />
+	<input type="button" value ="Convert"
+		onclick = "num = parseFloat(document.getElementById('sgpa').value);
+		document.getElementById('ans').value = (num*10)-7.5; "
+	>
+	<br />
+	<br />
+	Enter Percentage: <input type="answer" id="ans">
+	<br />
+	<br />
+	OR
+	<br />
+	<br />
+	
+	CGPA: <input type="number" id="cgpa" min="1" max="10">
+	<br />
+	<br />
+	<input type="button" value ="Convert"
+		onclick = "num1 = parseFloat(document.getElementById('cgpa').value);
+		document.getElementById('ans1').value = (num1*9.5); "
+	>
+	<br />
+	<br />
+	Percentage: <input type="answer" id="ans1">
+	<br />
+	
+</body>
+</html>
