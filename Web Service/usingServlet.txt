@@ -1,0 +1,63 @@
+index.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Addition</title>
+</head>
+<body>
+	<form action="add">
+		Enter 1st Number : <input type="text" name ="num1"><br>
+		Enter 2nd Number : <input type="text" name ="num2"><br>
+		
+		<input type = "submit">
+		
+	
+	</form>
+</body>
+</html>
+
+
+AddServlet.java:
+
+package com.unique;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class AddServlet extends HttpServlet{
+	
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
+		int i = Integer.parseInt(req.getParameter("num1"));
+		int j = Integer.parseInt(req.getParameter("num2"));
+		
+		int k = i+j;
+		
+		PrintWriter out = res.getWriter();
+		out.println("Result is : "+k);
+	}
+
+}
+
+
+web.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <servlet>
+  	<servlet-name>abc</servlet-name>
+  	<servlet-class>com.unique.AddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>abc</servlet-name>
+  	<url-pattern>/add</url-pattern>
+  
+  </servlet-mapping>
+</web-app>
